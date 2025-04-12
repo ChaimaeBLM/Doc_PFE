@@ -3,18 +3,15 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Documentation SmartGOV documentation
+Documentation SmartGOV 
 ====================================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
-
-Hello World
-------------
-
+Bienvenue à la documentation de *SmartGOV*! Un outil intelligent pour l'amélioration de l'aménagement territorial et la gouvernance.
+Il est conçu pour aider les gouvernements locaux à prendre des décisions éclairées en matière d'aménagement du territoire!.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 4
+   :caption: Table de matières:
+
+   Traitement des données 
 
