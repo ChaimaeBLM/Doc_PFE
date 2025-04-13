@@ -30,9 +30,10 @@ L’outil *AugmentoToolkit* a été développé pour répondre à ces défis en 
 ----------------------------------
 - 2.0 Environnement de développement 
 Commencez par créer un environnement virtuel Python pour isoler les dépendances du projet. Vous pouvez utiliser `venv` ou `conda` pour cela. Par exemple, avec `conda` :
-```bash conda create -n augmentotoolkitenv python=3.11
-        conda activate augmentotoolkitenv
-``` 
+.. productionlist::
+    ```bash conda create -n augmentotoolkitenv python=3.11
+            conda activate augmentotoolkitenv
+    ``` 
 
 Ensuite, installez les dépendances nécessaires à l'aide de `pip` et du fichier `requirements.txt` fourni dans le dépôt GitHub d'AugmentoToolkit. Cela inclut des bibliothèques essentielles pour le traitement du langage naturel, la gestion des fichiers et l'interaction avec les API.
 ```bash pip install -r requirements.txt
