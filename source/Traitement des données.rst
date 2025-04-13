@@ -3,12 +3,13 @@ Traitement des Donnnées
 ---------------------------------
 
 
-1. Introduction
----------------
-- 1.1 Objectif du traitement des données  
-Malgré les avancées significatives dans le domaine du traitement automatique du langage naturel (NLP), l'acquisition et la curation de jeux de données textuelles de haute qualité restent un défi pour de nombreux praticiens des données. L'absence d'outils de prétraitement automatisés fiables nécessite souvent une intervention humaine sous forme d’étiquetage et de curation manuels — un processus long, fastidieux, et souvent peu plaisant. Cela est particulièrement vrai lorsqu’on travaille avec des données brutes non structurées. Ces dernières constituent une catégorie vaste qui englobe, entre autres, les quantités massives de textes et de publications sur les réseaux sociaux disponibles en ligne.
+1. Introduction & Contexte
+--------------------------------
+- 1.1 Objectif du traitement des données 
 
-Un autre défi pour les praticiens des données est le processus de détection et de filtrage des informations sensibles, privées, ou non désirées dans les jeux de données. Selon Marinelli et al. (2020), ce processus est « presque entièrement confié à l'expérience des experts humains du domaine, qui sont submergés par le nombre énorme et en constante augmentation de documents à traiter ». Il en résulte que les data scientists et analystes passent la majeure partie de leur temps à nettoyer, organiser et préparer les données, plutôt qu’à les analyser ou les exploiter (Forbes, 2016 ; Weka, 2023).
+Des raports annuelles, des discours royaux , des projets territoriaux en excel ... Tout ceux , font partie de notre base de données.Cet ensemble de données textuelles brutes est ce qu'on appelle des données non structurées. Ces données sont souvent difficiles à traiter et à analyser, car elles ne sont pas organisées de manière systématique. Pour tirer parti de ces données, il est essentiel de les transformer en un format structuré et exploitable ou autrement dit faire du *data processing*.
+
+Malgré les avancées significatives dans le domaine du traitement automatique du langage naturel (NLP), l'acquisition et la curation de jeux de données textuelles non structurées de haute qualité restent un défi. L'absence d'outils de prétraitement automatisés fiables nécessite souvent une intervention humaine sous forme d’étiquetage et de curation manuels — un processus long, fastidieux, et souvent peu plaisant.
 
 Ces défis sont aujourd’hui partiellement relevés par les pipelines automatisés de traitement des données : des algorithmes, modèles statistiques et autres outils NLP permettent de gérer efficacement de grandes quantités de données. Entraîner des modèles de machine learning (ML) pour la correction d’erreurs, le nettoyage des données ou d’autres étapes de prétraitement est une option viable, mais cela requiert des jeux de données d’entraînement difficiles à obtenir, car ils doivent être annotés et étiquetés manuellement. Le problème de ces méthodes traditionnelles est qu’elles sont souvent limitées aux tâches spécifiques et aux types de contenus pour lesquels elles ont été conçues. Par conséquent, elles ne sont pas généralisables à de nouvelles tâches et échouent face à des variations inattendues dans le contenu ou le type de données.
 
@@ -16,16 +17,31 @@ Les modèles de deep learning (DL) plus sophistiqués peuvent mieux s’en sorti
 
 Les grands modèles de langage (LLM), en revanche, ont montré une capacité remarquable à s’adapter à un large éventail de tâches de génération de texte grâce à leurs compétences générales en NLP. Cela les rend plus adaptés aux tâches complexes caractérisées par des variations imprévues, fréquentes dans la préparation de données. Les LLM comme GPT-3.5 affichent des performances à l’état de l’art pour des tâches simples sur des données tabulaires structurées, incluant la reconnaissance d’entités nommées (NER), la détection d’erreurs et l’imputation de données (Zhang et al., 2023 ; Wang et al., 2023). Cela soulève la question de savoir si ces capacités peuvent être étendues à des tâches de prétraitement plus complexes et globales impliquant des données brutes non structurées.
 
-Si les LLM peuvent résoudre des tâches complexes de gestion des données et être utilisés comme préprocesseurs avancés, cela permettrait d’automatiser des pipelines de gestion des données complexes — ce qui constitue depuis longtemps le "graal" de la communauté de gestion des données. Deux principaux défis se dressent toutefois sur cette voie : le manque de connaissances sur la façon d’implémenter les LLM comme préprocesseurs avancés, et les problématiques classiques liées à toute mise en œuvre de LLM. Pollution des données, ressources computationnelles, passage à l’échelle, sécurité des données, protection de la vie privée, hallucinations, et problèmes de fiabilité sont autant de défis à surmonter pour rendre les LLM viables en tant que préprocesseurs de données avancés.
+Si les LLM peuvent résoudre des tâches complexes de gestion des données et être utilisés comme préprocesseurs avancés, cela permettrait d’automatiser des pipelines de gestion des données complexes — ce qui constitue depuis longtemps le "graal" de la communauté de gestion des données.
 
-- 1.2 Contexte d’utilisation d’AugmentoToolkit  
-- 1.3 Vue d’ensemble du pipeline de traitement  
+- 1.2 Contexte d’utilisation d’AugmentoToolkit 
 
-2. Présentation d’AugmentoToolkit
+L’outil *AugmentoToolkit* a été développé pour répondre à ces défis en fournissant un pipeline de traitement des données automatisé et flexible, capable de gérer efficacement de grandes quantités de données non structurées. Il est conçu pour faciliter la transformation de n'importe quel texte brut en un format structuré, prêt à être utilisé pour l’entraînement de modèles de grandes tailles. En intégrant des LLM avancés dans le pipeline, AugmentoToolkit est personalisable, open source et économique.
+
+
+
+
+2. Mise en place de l'environnement
 ----------------------------------
-- 2.1 Description générale de l’outil  
-- 2.2 Fonctionnalités clés utilisées  
-- 2.3 Justification du choix d’AugmentoToolkit  
+- 2.0 Environnement de développement 
+Commencez par créer un environnement virtuel Python pour isoler les dépendances du projet. Vous pouvez utiliser `venv` ou `conda` pour cela. Par exemple, avec `conda` :
+```bash conda create -n augmentotoolkitenv python=3.11
+        conda activate augmentotoolkitenv
+``` 
+
+Ensuite, installez les dépendances nécessaires à l'aide de `pip` et du fichier `requirements.txt` fourni dans le dépôt GitHub d'AugmentoToolkit. Cela inclut des bibliothèques essentielles pour le traitement du langage naturel, la gestion des fichiers et l'interaction avec les API.
+```bash pip install -r requirements.txt
+``` 
+
+Nous utilisons pour ce projet le pipeline implémenter sous le dossier `original/` du dépôt GitHub d'AugmentoToolkit. Ce pipeline est conçu pour être modulaire et extensible, permettant aux utilisateurs de personnaliser chaque étape en fonction de leurs besoins spécifiques.
+
+
+
 
 3. Préparation des données sources
 ----------------------------------
@@ -42,6 +58,19 @@ Si les LLM peuvent résoudre des tâches complexes de gestion des données et ê
 - 4.2 Critères de sélection des segments pertinents  
 - 4.3 Élimination des doublons et des sections non pertinentes  
 - 4.4 Langues traitées et détection automatique de la langue  
+
+"""
+- 1.3 Vue d’ensemble du pipeline de traitement  
+
+Le pipeline de traitement des données d’AugmentoToolkit est conçu pour être modulaire et extensible, permettant aux utilisateurs de personnaliser chaque étape en fonction de leurs besoins spécifiques. Il comprend les étapes suivantes :
+1. **Préparation des données sources :** Cette étape consiste à collecter et organiser les données brutes provenant de différentes sources, telles que des fichiers PDF, DOCX, TXT, HTML, CSV, EPUB, etc. Le pipeline gère également l’extraction de texte depuis ces formats variés.
+2. **Segmentation et filtrage des textes :** Les données brutes sont segmentées en paragraphes ou en phrases, et les segments non pertinents sont filtrés. Cette étape inclut également la détection automatique de la langue.
+3. **Génération automatique de questions-réponses :** À l’aide d’un modèle LLM, le pipeline génère automatiquement des paires de questions-réponses (QA) à partir des segments de texte filtrés. Cette étape est cruciale pour créer des jeux de données d’entraînement de haute qualité.
+4. **Post-traitement et validation :** Les QA générées sont vérifiées manuellement pour garantir leur qualité et leur cohérence. Les QA non pertinentes sont supprimées, et les données sont structurées dans un format standard (JSONL) pour le fine-tuning.
+5. **Exportation et sauvegarde des données :** Les données traitées sont exportées dans un format standard (JSONL) pour le fine-tuning des modèles. Le pipeline gère également la gestion des versions des jeux de données générés.
+
+"""
+
 
 5. Génération automatique de questions-réponses
 -----------------------------------------------
