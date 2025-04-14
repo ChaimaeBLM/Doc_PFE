@@ -68,30 +68,28 @@ Dans cette section nous allons aborder les défis spécifiques rencontrés lors 
       :alt: Exemple de traduction et modification d'un "few-shot example"
 
 - 3.2 Gestion des accents et des caractères spéciaux  
-  Augmentoolkit est un outil construit en anglais , et vu que sont usage est essentiellement concu pour les données textuelles, l'utiliser pour des données en francais devient frustrant avec les erreurs qui apparaissent à chaque fois;
+  Augmentoolkit est un outil initialement conçu en anglais. Son utilisation avec des données textuelles en français peut rapidement devenir frustrante, en raison des erreurs fréquentes liées aux caractères accentués et spéciaux.
 
     .. image:: images/errorascii.png
       :width: 600 px
       :align: center
       :alt: Exemple de traduction et modification d'un "few-shot example"
 
-  La solution alors était de spécifier à chaque fois l'encoding utf-8, une encodage universel qui a pour objectif de réunir les caractères utilisés par toutes les langues. 
+  La solution alors était de spécifier à chaque fois l'encodage UTF-8,
+  
+  ```encoding="utf-8"
+  ```
+   Cet encodage universel permet de gérer correctement les caractères utilisés dans toutes les langues, y compris le français. Il est également nécessaire de désactiver la conversion forcée en ASCII en précisant  
 
-    .. image:: images/encoding.png
-      :width: 600 px
-      :align: center
-      :alt: Exemple de traduction et modification d'un "few-shot example"
+  ```ensure-ascii=false
+  ```
 
-    .. image:: images/ascii.png
-      :width: 600 px
-      :align: center
-      :alt: Exemple de traduction et modification d'un "few-shot example"
+- 3.3 Modifications des Regex (Regular Expressions)
+Le passage entre les prompts consiste à chaque fois de vérifier l'occurence d'expressions spécifique dans les réponses retourner par LLM, exemple "pertinent" / "non pertinent". Il est donc nécessaire d’adapter les expressions régulières (regex) pour qu’elles reconnaissent les nouvelles formulations en français, en remplacement des versions anglaises comme "Suitable" / "Not suitable".
 
-
-
-
-- 3.3 Problèmes de reconnaissance d'entités nommées (NER)  
 - 3.4 Limitations des modèles LLM pour le français
+Certains modèles de langage à grande échelle (LLM) sont entraînés majoritairement sur des données en langue anglaise, ce qui peut entraîner des performances moindres lorsqu’ils sont utilisés pour d'autres langues, notamment le français.
+Cependant, l’utilisation de modèles comme LLaMA-2 70B Instruct a démontré des résultats impressionnants en français, malgré ces limitations, notamment grâce à une meilleure capacité de généralisation et de compréhension multilingue.
 
 4. Segmentation et filtrage des textes
 --------------------------------------
