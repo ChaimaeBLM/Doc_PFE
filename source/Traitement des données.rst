@@ -76,11 +76,9 @@ Augmentoolkit est un outil initialement conçu en anglais. Son utilisation avec 
     :alt: Exemple de traduction et modification d'un "few-shot example"
 
 La solution alors était de spécifier à chaque fois l'encodage UTF-8,
-
 ```encoding="utf-8"
 ```
   Cet encodage universel permet de gérer correctement les caractères utilisés dans toutes les langues, y compris le français. Il est également nécessaire de désactiver la conversion forcée en ASCII en précisant  
-
 ```ensure-ascii=false
 ```
 
@@ -91,12 +89,14 @@ Le passage entre les prompts consiste à chaque fois de vérifier l'occurence d'
 Certains modèles de langage à grande échelle (LLM) sont entraînés majoritairement sur des données en langue anglaise, ce qui peut entraîner des performances moindres lorsqu’ils sont utilisés pour d'autres langues, notamment le français.
 Cependant, l’utilisation de modèles comme LLaMA-2 70B Instruct a démontré des résultats impressionnants en français, malgré ces limitations, notamment grâce à une meilleure capacité de généralisation et de compréhension multilingue.
 
-4. Segmentation et filtrage des textes
---------------------------------------
-- 4.1 Stratégie de segmentation en paragraphes  
-- 4.2 Critères de sélection des segments pertinents  
-- 4.3 Élimination des doublons et des sections non pertinentes  
-- 4.4 Langues traitées et détection automatique de la langue  
+4. Pipeline et traitement automatisé des données
+------------------------------------------------
+- 4.1 Présentation du pipeline de traitement
+
+  .. image:: images/traitement de données avec Augmentoolkit.png
+    :width: 600 px
+    :align: center
+    :alt: Exemple de traduction et modification d'un "few-shot example"
 
 """
 - 1.3 Vue d’ensemble du pipeline de traitement  
