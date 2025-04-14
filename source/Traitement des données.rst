@@ -52,37 +52,37 @@ L'un des principaux défis du traitement des données textuelles en français es
 Dans cette section nous allons aborder les défis spécifiques rencontrés lors de l'adaptation du pipeline de traitement des données d'AugmentoToolkit au français, ainsi que les modifications apportées pour surmonter ces défis.
 
 - 3.1 Conception des prompts 
-  La modification des prompts ne se restreint pas uniquement à une traduction naive du contenu , mais aussi une adaptation contextuelle dans laquelle l'IA passe d'un rôle d’enseignant à un rôle de conseiller stratégique, comme est illustré dans l'image si dessous **
-  Toutefois, la structure du prompt est conservé vu que ce dernier sera traiter par des regex par la suite.
+La modification des prompts ne se restreint pas uniquement à une traduction naive du contenu , mais aussi une adaptation contextuelle dans laquelle l'IA passe d'un rôle d’enseignant à un rôle de conseiller stratégique, comme est illustré dans l'image si dessous **
+Toutefois, la structure du prompt est conservé vu que ce dernier sera traiter par des regex par la suite.
 
-    .. image:: images/promptEN2FR.png
-      :width: 600 px
-      :align: center
-      :alt: Exemple de traduction et modification d'un prompt
+  .. image:: images/promptEN2FR.png
+    :width: 600 px
+    :align: center
+    :alt: Exemple de traduction et modification d'un prompt
 
-  Chaque prompt ensuite, contient une partie de "few-shot example" utilisé pour guider un modèle LLM dans la tache décrite précedement, ceux-ci ont été changés entierement et adapté à notre cas d'utilisation. Tout en conservant encore une fois, la structure du prompt.
+Chaque prompt ensuite, contient une partie de "few-shot example" utilisé pour guider un modèle LLM dans la tache décrite précedement, ceux-ci ont été changés entierement et adapté à notre cas d'utilisation. Tout en conservant encore une fois, la structure du prompt.
 
-    .. image:: images/fewshotEN2FR.png
-      :width: 600 px
-      :align: center
-      :alt: Exemple de traduction et modification d'un "few-shot example"
+  .. image:: images/fewshotEN2FR.png
+    :width: 600 px
+    :align: center
+    :alt: Exemple de traduction et modification d'un "few-shot example"
 
 - 3.2 Gestion des accents et des caractères spéciaux  
-  Augmentoolkit est un outil initialement conçu en anglais. Son utilisation avec des données textuelles en français peut rapidement devenir frustrante, en raison des erreurs fréquentes liées aux caractères accentués et spéciaux.
+Augmentoolkit est un outil initialement conçu en anglais. Son utilisation avec des données textuelles en français peut rapidement devenir frustrante, en raison des erreurs fréquentes liées aux caractères accentués et spéciaux.
 
-    .. image:: images/errorascii.png
-      :width: 600 px
-      :align: center
-      :alt: Exemple de traduction et modification d'un "few-shot example"
+  .. image:: images/errorascii.png
+    :width: 600 px
+    :align: center
+    :alt: Exemple de traduction et modification d'un "few-shot example"
 
-  La solution alors était de spécifier à chaque fois l'encodage UTF-8,
-  
-  ```encoding="utf-8"
-  ```
-   Cet encodage universel permet de gérer correctement les caractères utilisés dans toutes les langues, y compris le français. Il est également nécessaire de désactiver la conversion forcée en ASCII en précisant  
+La solution alors était de spécifier à chaque fois l'encodage UTF-8,
 
-  ```ensure-ascii=false
-  ```
+```encoding="utf-8"
+```
+  Cet encodage universel permet de gérer correctement les caractères utilisés dans toutes les langues, y compris le français. Il est également nécessaire de désactiver la conversion forcée en ASCII en précisant  
+
+```ensure-ascii=false
+```
 
 - 3.3 Modifications des Regex (Regular Expressions)
 Le passage entre les prompts consiste à chaque fois de vérifier l'occurence d'expressions spécifique dans les réponses retourner par LLM, exemple "pertinent" / "non pertinent". Il est donc nécessaire d’adapter les expressions régulières (regex) pour qu’elles reconnaissent les nouvelles formulations en français, en remplacement des versions anglaises comme "Suitable" / "Not suitable".
