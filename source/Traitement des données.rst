@@ -31,36 +31,37 @@ L’outil *AugmentoToolkit* a été développé pour répondre à ces défis en 
 - 2.0 Environnement de développement 
 Commencez par créer un environnement virtuel Python pour isoler les dépendances du projet. Vous pouvez utiliser `venv` ou `conda` pour cela. Par exemple, avec `conda` :
 
-
 ```bash conda create -n augmentotoolkitenv python=3.11
 ```
-
 Ensuite, activez l'environnement virtuel que vous venez de créer :
-
 
 ```bash conda activate augmentotoolkitenv
 ```
 
-
 Ensuite, installez les dépendances nécessaires à l'aide de `pip` et du fichier `requirements.txt` fourni dans le dépôt GitHub d'AugmentoToolkit. Cela inclut des bibliothèques essentielles pour le traitement du langage naturel, la gestion des fichiers et l'interaction avec les API.
 
-
-```bash pip install -r requirements.txt
-``` 
+```bash pip install -r requirements.txt``` 
 
 Nous utilisons pour ce projet le pipeline implémenter sous le dossier `original/` du dépôt GitHub d'AugmentoToolkit. Ce pipeline est conçu pour être modulaire et extensible, permettant aux utilisateurs de personnaliser chaque étape en fonction de leurs besoins spécifiques.
 
 
+3. Adaptation au francais : défis et modifications
+--------------------------------------------------
+L'un des principaux défis du traitement des données textuelles en français est la rareté des ressources et outils adaptés à la langue francaise. De plus, la langue française présente des particularités grammaticales et syntaxiques qui nécessitent une attention particulière lors du traitement.
+Dans cette section nous allons aborder les défis spécifiques rencontrés lors de l'adaptation du pipeline de traitement des données d'AugmentoToolkit au français, ainsi que les modifications apportées pour surmonter ces défis.
+- 3.1 Défis rencontrés lors de l'adaptation au français  
+    - 3.1.1 Conception des prompts 
+    
+     .. image:: source/images/promptEN2FR.png
+        :width: 600 px
+        :align: center
+        :alt: Prompt d'extraction de QA en français
+        :target: source/images/promptEN2FR.png
 
 
-3. Préparation des données sources
-----------------------------------
-- 3.1 Types de fichiers acceptés (PDF, DOCX, TXT, HTML, CSV, EPUB, etc.)  
-- 3.2 Structure des répertoires et organisation des fichiers  
-- 3.3 Méthodes d’extraction des textes depuis différents formats  
-  - 3.3.1 Extraction des textes depuis des fichiers PDF  
-  - 3.3.2 Nettoyage des métadonnées et balises HTML  
-  - 3.3.3 Gestion de l’encodage et des caractères spéciaux  
+    - 3.1.2 Gestion des accents et des caractères spéciaux  
+    - 3.1.3 Problèmes de reconnaissance d'entités nommées (NER)  
+    - 3.1.4 Limitations des modèles LLM pour le français
 
 4. Segmentation et filtrage des textes
 --------------------------------------
