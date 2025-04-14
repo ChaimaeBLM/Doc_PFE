@@ -49,18 +49,27 @@ Nous utilisons pour ce projet le pipeline implémenter sous le dossier `original
 --------------------------------------------------
 L'un des principaux défis du traitement des données textuelles en français est la rareté des ressources et outils adaptés à la langue francaise. De plus, la langue française présente des particularités grammaticales et syntaxiques qui nécessitent une attention particulière lors du traitement.
 Dans cette section nous allons aborder les défis spécifiques rencontrés lors de l'adaptation du pipeline de traitement des données d'AugmentoToolkit au français, ainsi que les modifications apportées pour surmonter ces défis.
+
 - 3.1 Défis rencontrés lors de l'adaptation au français  
-    - 3.1.1 Conception des prompts 
+  - 3.1.1 Conception des prompts 
+    La modification des prompts ne se restreint pas uniquement à une traduction naive du contenu , mais aussi une adaptation contextuelle dans laquelle l'IA passe d'un rôle d’enseignant à un rôle de conseiller stratégique, comme est illustré dans l'image si dessous **
+    Toutefois, la structure du prompt est conservé vu que ce dernier sera traiter par des regex par la suite.
 
      .. image:: images/promptEN2FR.png
         :width: 600 px
         :align: center
         :alt: Exemple de traduction et modification d'un prompt
 
+    Chaque prompt ensuite, contient une partie de "few-shot example" utilisé pour guider un modèle LLM dans la tache décrite précedement, ceux-ci ont été changés entierement et adapté à notre cas d'utilisation. Tout en conservant encore une fois, la structure du prompt.
 
-    - 3.1.2 Gestion des accents et des caractères spéciaux  
-    - 3.1.3 Problèmes de reconnaissance d'entités nommées (NER)  
-    - 3.1.4 Limitations des modèles LLM pour le français
+     .. image:: images/fewshotEN2FR.png
+        :width: 600 px
+        :align: center
+        :alt: Exemple de traduction et modification d'un "few-shot example"
+
+  - 3.1.2 Gestion des accents et des caractères spéciaux  
+  - 3.1.3 Problèmes de reconnaissance d'entités nommées (NER)  
+  - 3.1.4 Limitations des modèles LLM pour le français
 
 4. Segmentation et filtrage des textes
 --------------------------------------
