@@ -31,6 +31,7 @@ L’outil *AugmentoToolkit* a été développé pour répondre à ces défis en 
 - 2.0 Environnement de développement 
 Commencez par créer un environnement virtuel Python pour isoler les dépendances du projet. Vous pouvez utiliser `venv` ou `conda` pour cela. Par exemple, avec `conda` :
 
+
 ```bash conda create -n augmentotoolkitenv python=3.11
 ```
 Ensuite, activez l'environnement virtuel que vous venez de créer :
@@ -50,26 +51,47 @@ Nous utilisons pour ce projet le pipeline implémenter sous le dossier `original
 L'un des principaux défis du traitement des données textuelles en français est la rareté des ressources et outils adaptés à la langue francaise. De plus, la langue française présente des particularités grammaticales et syntaxiques qui nécessitent une attention particulière lors du traitement.
 Dans cette section nous allons aborder les défis spécifiques rencontrés lors de l'adaptation du pipeline de traitement des données d'AugmentoToolkit au français, ainsi que les modifications apportées pour surmonter ces défis.
 
-- 3.1 Défis rencontrés lors de l'adaptation au français  
-  - 3.1.1 Conception des prompts 
-    La modification des prompts ne se restreint pas uniquement à une traduction naive du contenu , mais aussi une adaptation contextuelle dans laquelle l'IA passe d'un rôle d’enseignant à un rôle de conseiller stratégique, comme est illustré dans l'image si dessous **
-    Toutefois, la structure du prompt est conservé vu que ce dernier sera traiter par des regex par la suite.
+- 3.1 Conception des prompts 
+  La modification des prompts ne se restreint pas uniquement à une traduction naive du contenu , mais aussi une adaptation contextuelle dans laquelle l'IA passe d'un rôle d’enseignant à un rôle de conseiller stratégique, comme est illustré dans l'image si dessous **
+  Toutefois, la structure du prompt est conservé vu que ce dernier sera traiter par des regex par la suite.
 
-     .. image:: images/promptEN2FR.png
-        :width: 600 px
-        :align: center
-        :alt: Exemple de traduction et modification d'un prompt
+    .. image:: images/promptEN2FR.png
+      :width: 600 px
+      :align: center
+      :alt: Exemple de traduction et modification d'un prompt
 
-    Chaque prompt ensuite, contient une partie de "few-shot example" utilisé pour guider un modèle LLM dans la tache décrite précedement, ceux-ci ont été changés entierement et adapté à notre cas d'utilisation. Tout en conservant encore une fois, la structure du prompt.
+  Chaque prompt ensuite, contient une partie de "few-shot example" utilisé pour guider un modèle LLM dans la tache décrite précedement, ceux-ci ont été changés entierement et adapté à notre cas d'utilisation. Tout en conservant encore une fois, la structure du prompt.
 
-     .. image:: images/fewshotEN2FR.png
-        :width: 600 px
-        :align: center
-        :alt: Exemple de traduction et modification d'un "few-shot example"
+    .. image:: images/fewshotEN2FR.png
+      :width: 600 px
+      :align: center
+      :alt: Exemple de traduction et modification d'un "few-shot example"
 
-  - 3.1.2 Gestion des accents et des caractères spéciaux  
-  - 3.1.3 Problèmes de reconnaissance d'entités nommées (NER)  
-  - 3.1.4 Limitations des modèles LLM pour le français
+- 3.2 Gestion des accents et des caractères spéciaux  
+  Augmentoolkit est un outil construit en anglais , et vu que sont usage est essentiellement concu pour les données textuelles, l'utiliser pour des données en francais devient frustrant avec les erreurs qui apparaissent à chaque fois;
+
+    .. image:: images/errorascii.png
+      :width: 600 px
+      :align: center
+      :alt: Exemple de traduction et modification d'un "few-shot example"
+
+  La solution alors était de spécifier à chaque fois l'encoding utf-8, une encodage universel qui a pour objectif de réunir les caractères utilisés par toutes les langues. 
+
+    .. image:: images/encoding.png
+      :width: 600 px
+      :align: center
+      :alt: Exemple de traduction et modification d'un "few-shot example"
+
+    .. image:: images/ascii.png
+      :width: 600 px
+      :align: center
+      :alt: Exemple de traduction et modification d'un "few-shot example"
+
+
+
+
+- 3.3 Problèmes de reconnaissance d'entités nommées (NER)  
+- 3.4 Limitations des modèles LLM pour le français
 
 4. Segmentation et filtrage des textes
 --------------------------------------
