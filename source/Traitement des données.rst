@@ -51,12 +51,11 @@ L'un des principaux défis du traitement des données textuelles en français es
 Dans cette section nous allons aborder les défis spécifiques rencontrés lors de l'adaptation du pipeline de traitement des données d'AugmentoToolkit au français, ainsi que les modifications apportées pour surmonter ces défis.
 - 3.1 Défis rencontrés lors de l'adaptation au français  
     - 3.1.1 Conception des prompts 
-    
-     .. image:: source/images/promptEN2FR.png
+
+     .. image:: source\images\promptEN2FR.png
         :width: 600 px
         :align: center
-        :alt: Prompt d'extraction de QA en français
-        :target: source/images/promptEN2FR.png
+        :alt: Exemple de traduction et modification d'un prompt
 
 
     - 3.1.2 Gestion des accents et des caractères spéciaux  
