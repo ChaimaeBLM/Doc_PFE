@@ -52,7 +52,7 @@ Dans cette section nous allons aborder les défis spécifiques rencontrés lors 
 - 3.1 Défis rencontrés lors de l'adaptation au français  
     - 3.1.1 Conception des prompts 
 
-     .. image:: source\images\promptEN2FR.png
+     .. image:: images/promptEN2FR.png
         :width: 600 px
         :align: center
         :alt: Exemple de traduction et modification d'un prompt
