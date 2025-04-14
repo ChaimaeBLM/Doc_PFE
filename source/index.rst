@@ -13,5 +13,10 @@ Il est conçu pour aider les gouvernements locaux à prendre des décisions écl
    :maxdepth: 4
    :caption: Table de matières:
 
+   Collecte des données
+   ###############
    Traitement des données 
+   ###############
+   Fine tuning / RAG
+
 

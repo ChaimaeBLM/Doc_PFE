@@ -105,10 +105,10 @@ Le pipeline de traitement des données d’AugmentoToolkit est conçu pour être
 
 5. **Exportation et sauvegarde des données :** Les données traitées sont exportées dans un format standard (JSONL) pour le fine-tuning des modèles. 
 
-  .. image:: images/pipeline.png
-    :width: 600 px
-    :align: center
-    :alt: Exemple de traduction et modification d'un "few-shot example"
+.. image:: images/pipeline.png
+  :width: 600 px
+  :align: center
+  :alt: Exemple de traduction et modification d'un "few-shot example"
 
 
 
