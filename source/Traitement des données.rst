@@ -93,7 +93,7 @@ Cependant, l’utilisation de modèles comme LLaMA-2 70B Instruct a démontré d
 ------------------------------------------------
 - 4.1 Présentation du pipeline de traitement
 
-  .. image:: images/traitement de données avec Augmentoolkit.png
+  .. image:: images/pipeline.png
     :width: 600 px
     :align: center
     :alt: Exemple de traduction et modification d'un "few-shot example"
