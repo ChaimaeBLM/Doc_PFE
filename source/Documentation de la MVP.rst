@@ -1,3 +1,3 @@
-Collecte des données
+Documentation de la MVP
 =======================
 -------------------------

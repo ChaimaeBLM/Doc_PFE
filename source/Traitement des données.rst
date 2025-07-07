@@ -117,28 +117,4 @@ Le pipeline de traitement des données d’AugmentoToolkit est conçu pour être
 - 7.1 Format de sortie standard (JSONL pour le fine-tuning)  
 
 Le format JSONL (JSON Lines) est un format de fichier texte où chaque ligne est un objet JSON valide. Ce format est particulièrement adapté pour le stockage de données structurées, car il permet de traiter chaque ligne indépendamment, facilitant ainsi l'importation et l'exportation des données.
-- 7.2 Exemple de structure d’un fichier JSONL  
-
-- 7.3 Stockage dans une base de données ou un répertoire local  
-- 7.4 Gestion des versions des jeux de données générés  
-
-8. Problèmes rencontrés et solutions apportées
-----------------------------------------------
-- 8.1 Problèmes liés à l’extraction de texte (PDF scannés, tableaux, etc.)  
-- 8.2 Problèmes de cohérence linguistique  
-- 8.3 Limitations rencontrées avec l’API ou le modèle utilisé  
-- 8.4 Optimisations effectuées pour améliorer les performances  
-
-9. Perspectives d’amélioration
-------------------------------
-- 9.1 Automatisation complète du pipeline  
-- 9.2 Intégration de la validation humaine via interface  
-- 9.3 Utilisation de modèles multilingues ou spécialisés  
-- 9.4 Adaptation à d’autres types de données (audio, vidéo, etc.)  
-
-10. Annexes
------------
-- 10.1 Schémas du pipeline de traitement  
-- 10.2 Scripts ou fichiers de configuration utilisés  
-- 10.3 Références techniques (liens vers la doc AugmentoToolkit, API LLM, etc.)  
-- 10.4 Liste des sources traitées (noms de fichiers ou types de documents)
+ 
