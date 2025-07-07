@@ -18,7 +18,8 @@ Cette documentation présente l'architecture, l'implémentation et l'utilisation
    :maxdepth: 4
    :caption: Table de matières:
 
-   Traitement des données avec Aumentoolkit
+   Traitement des Donnnées avec Aumentoolkit
+
   
 
 .. toctree::

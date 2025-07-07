@@ -1,7 +1,7 @@
 Architecture du Backend
 =======================
 
-.. image:: ../images/Capture d’écran 2025-07-07 163906.png
+.. image:: ../images/cap.png
    :alt: Architecture Backend
 
 L’architecture suit une séparation claire des responsabilités :
