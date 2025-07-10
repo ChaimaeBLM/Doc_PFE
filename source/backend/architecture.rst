@@ -13,3 +13,4 @@ L’architecture suit une séparation claire des responsabilités :
 - **Data Layer** :
   - `chroma_db/` et `faiss_index/` : pour le stockage vectoriel.
   - `init_db.py`, `conversation_service.py`, `config.py` : gestion des connexions à la base de données PostgreSQL et configuration.
+
