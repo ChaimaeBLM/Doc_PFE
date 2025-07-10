@@ -55,14 +55,14 @@ Dans cette section nous allons aborder les défis spécifiques rencontrés lors 
 La modification des prompts ne se restreint pas uniquement à une traduction naive du contenu , mais aussi une adaptation contextuelle dans laquelle l'IA passe d'un rôle d’enseignant à un rôle de conseiller stratégique, comme est illustré dans l'image si dessous **
 Toutefois, la structure du prompt est conservé vu que ce dernier sera traiter par des regex par la suite.
 
-.. image:: images/promptEN2FR.png
+.. image:: ../images/promptEN2FR.png
   :width: 600 px
   :align: center
   :alt: Exemple de traduction et modification d'un prompt
 
 Chaque prompt ensuite, contient une partie de "few-shot example" utilisé pour guider un modèle LLM dans la tache décrite précedement, ceux-ci ont été changés entierement et adapté à notre cas d'utilisation. Tout en conservant encore une fois, la structure du prompt.
 
-.. image:: images/fewshotEN2FR.png
+.. image:: ../images/fewshotEN2FR.png
   :width: 600 px
   :align: center
   :alt: Exemple de traduction et modification d'un "few-shot example"
@@ -70,7 +70,7 @@ Chaque prompt ensuite, contient une partie de "few-shot example" utilisé pour g
 - 3.2 Gestion des accents et des caractères spéciaux  
 Augmentoolkit est un outil initialement conçu en anglais. Son utilisation avec des données textuelles en français peut rapidement devenir frustrante, en raison des erreurs fréquentes liées aux caractères accentués et spéciaux.
 
-.. image:: images/errorascii.png
+.. image:: ../images/errorascii.png
   :width: 600 px
   :align: center
   :alt: Exemple de traduction et modification d'un "few-shot example"
@@ -105,7 +105,7 @@ Le pipeline de traitement des données d’AugmentoToolkit est conçu pour être
 
 5. **Exportation et sauvegarde des données :** Les données traitées sont exportées dans un format standard (JSONL) pour le fine-tuning des modèles. 
 
-.. image:: images/pipeline.png
+.. image:: ../images/pipeline.png
   :width: 600 px
   :align: center
   :alt: Exemple de traduction et modification d'un "few-shot example"
