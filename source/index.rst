@@ -15,12 +15,11 @@ Cette documentation présente l'architecture, l'implémentation et l'utilisation
 - **Frontend** : interface utilisateur construite avec Gradio (ou Streamlit si changé), permettant d'interagir avec l'assistant.
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Traitement des Donnnées avec Aumentoolkit:
 
-   td
+   donnes/td
 
-  
 
 .. toctree::
    :maxdepth: 2
