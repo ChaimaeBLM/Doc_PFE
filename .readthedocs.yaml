@@ -4,9 +4,6 @@
 # Required
 version: 2
 
-formats:
-  - pdf
-  - html
 # Set the OS, Python version, and other tools you might need
 build:
   os: ubuntu-24.04
